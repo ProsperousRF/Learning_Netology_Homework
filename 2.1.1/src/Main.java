@@ -16,7 +16,7 @@ public class Main {
     while (true) {
       System.out.println("Выберите товар и количество или введите `end`");
       String line = scanner.nextLine();
-      if (line.equals("end") || line.equals("")) {
+      if (line.equalsIgnoreCase("end") || line.equals("")) {
         break;
       }
       String[] split = line.split(" ");
@@ -38,6 +38,6 @@ public class Main {
         totalPrice += current;
       }
     }
-    System.out.printf("%38s %9d", "Итого", totalPrice);
+    System.out.printf("%38s %5s %d%n", "Итого", " ", totalPrice);
   }
 }
