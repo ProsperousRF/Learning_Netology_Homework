@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Main {
 
-  private final int SIZE = 2;
+  private final int SIZE = 8;
   private int[][] colors;
 
   public Main() {
@@ -33,16 +33,29 @@ public class Main {
     }
   }
 
-  public int[][] rotateMatrix(int[][] matrix) {
-    // TODO: Matrix rotation
-    return new int[SIZE][SIZE];
+  public void rotateMatrix(int[][] matrix) {
+
+    int N = matrix.length - 1;
+    int temp;
+
+    for (int i=0; i < N; i++) {
+      for (int j=0; j+i < N; j++) {
+        temp = matrix[i][N-j];
+        matrix[i][N-j] = matrix[i+j][i];
+        matrix[i+j][i] = matrix[N][i+j];
+        matrix[N][i+j] = matrix[N-j][N];
+        matrix[N-j][N] = temp;
+      }
+      N--;
+    }
   }
 
   public static void main(String[] args) {
 
     Main main = new Main();
     main.printMatrix(main.colors);
-    int[][] rotatedColors = main.rotateMatrix(main.colors);
-    main.printMatrix(rotatedColors);
+    main.rotateMatrix(main.colors);
+    System.out.println("---");
+    main.printMatrix(main.colors);
   }
 }
