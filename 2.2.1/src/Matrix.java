@@ -9,10 +9,9 @@ public class Matrix {
   public Matrix(int size) {
     this.SIZE = size;
     this.colors = new int[SIZE][SIZE];
-    matrixFill();
   }
 
-  private void matrixFill() {
+  public void fill() {
     Random random = new Random();
     for (int i = 0; i < SIZE; i++) {
       for (int j = 0; j < SIZE; j++) {

@@ -6,6 +6,7 @@ public class Main {
     int SIZE = 8;
 
     Matrix colors = new Matrix(SIZE);
+    colors.fill();
     colors.print();
 
     System.out.println("---");
