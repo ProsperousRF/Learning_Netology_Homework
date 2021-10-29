@@ -3,15 +3,22 @@ import java.util.Random;
 /** @author Stanislav Rakitov */
 public class Matrix {
 
-  private int SIZE;
-  private int[][] colors;
+  private final int SIZE;
+  private final int[][] colors;
+
+  protected Matrix(Matrix matrix) {
+    this.SIZE = matrix.SIZE;
+    this.colors = new int[SIZE][SIZE];
+    rotate(matrix.colors);
+  }
 
   public Matrix(int size) {
     this.SIZE = size;
     this.colors = new int[SIZE][SIZE];
+    fill();
   }
 
-  public void fill() {
+  private void fill() {
     Random random = new Random();
     for (int i = 0; i < SIZE; i++) {
       for (int j = 0; j < SIZE; j++) {
@@ -34,15 +41,13 @@ public class Matrix {
     }
   }
 
-  public Matrix rotate() {
-    Matrix matrix = new Matrix(SIZE);
-    matrix.colors = new int[SIZE][SIZE];
+  private void rotate(int[][] originalMatrix) {
+    int aSize = SIZE - 1;
     for (int j = 0; j < SIZE; j++) {
-      for (int i = SIZE - 1; i >= 0; i--) {
-        int cell = (SIZE - 1) - i;
-        matrix.colors[j][cell] = colors[i][j];
+      for (int i = aSize; i >= 0; i--) {
+        int cell = aSize - i;
+        this.colors[j][cell] = originalMatrix[i][j];
       }
     }
-    return matrix;
   }
 }

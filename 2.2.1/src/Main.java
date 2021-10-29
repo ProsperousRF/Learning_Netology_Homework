@@ -6,12 +6,11 @@ public class Main {
     int SIZE = 8;
 
     Matrix colors = new Matrix(SIZE);
-    colors.fill();
     colors.print();
 
     System.out.println("---");
 
-    Matrix rotatedColors = colors.rotate();
+    Matrix rotatedColors = new Matrix(colors);
     rotatedColors.print();
   }
 }
