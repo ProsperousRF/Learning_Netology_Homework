@@ -7,13 +7,13 @@ public class LibraryWorker implements Librarian, Administrator {
 
   @Override
   public void findBook(Book book) {
-    System.out.printf("Администратор нашел книгу %s%n", book.getTitle());
+    System.out.printf("Администратор нашел книгу \"%s\"%n", book.getTitle());
   }
 
   @Override
   public void giveBook(Reader reader, Book book) {
     System.out.printf(
-        "Администратор выдал книгу %s читателю %s%n", book.getTitle(), reader.getName());
+        "Администратор выдал книгу \"%s\" читателю %s%n", book.getTitle(), reader.getName());
   }
 
   @Override
