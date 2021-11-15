@@ -1,6 +1,6 @@
 /**
  * @author Stanislav Rakitov
  */
-public interface Supplier {
+public interface Supplier extends Person{
   void supplyBook(Book book);
 }

@@ -21,4 +21,9 @@ public class User implements Supplier, Reader{
   public void supplyBook(Book book) {
     System.out.printf("Поставщик %s поставил книгу %s%n", name, book.getTitle());
   }
+
+  @Override
+  public String getName() {
+    return this.name;
+  }
 }
