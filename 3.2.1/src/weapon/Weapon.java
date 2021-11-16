@@ -1,7 +1,9 @@
+package weapon;
+
 /**
  * @author Stanislav Rakitov
  */
-class Weapon {
+public class Weapon {
   public void shot() {
     // TODO override me!
   }

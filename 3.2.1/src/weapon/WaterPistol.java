@@ -1,3 +1,5 @@
+package weapon;
+
 /** @author Stanislav Rakitov */
 public class WaterPistol extends Weapon {
   @Override

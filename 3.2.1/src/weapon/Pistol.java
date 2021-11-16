@@ -1,7 +1,9 @@
+package weapon;
+
 /**
  * @author Stanislav Rakitov
  */
-public class Pistol extends Weapon{
+public class Pistol extends Weapon {
   @Override
   public void shot() {
     System.out.println("Пиу");

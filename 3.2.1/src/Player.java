@@ -1,3 +1,5 @@
+import weapon.*;
+
 /** @author Stanislav Rakitov */
 class Player {
   // Указываем тип данных Weapon, который будет храниться в "слотах игрока"
