@@ -1,4 +1,4 @@
-import java.util.PriorityQueue;
+import java.util.LinkedList;
 import java.util.Queue;
 
 /** @author Stanislav Rakitov in 2021 */
@@ -6,16 +6,24 @@ public class Elevator {
   private final Queue<Integer> queue;
   private int totalSeconds;
   private int previousFloor;
+  private Integer currentFloor;
 
   public Elevator() {
-    this.queue = new PriorityQueue<>();
+    this.queue = new LinkedList<>();
     this.totalSeconds = 0;
     this.previousFloor = -1;
+    this.currentFloor = -1;
   }
 
   public void addFloor(Integer floorNumber) {
     try {
-      queue.add(floorNumber);
+      // Проверяем этаж с прошлого добавления
+      if (!currentFloor.equals(floorNumber)) {
+        queue.add(floorNumber);
+        currentFloor = floorNumber;
+      } else {
+        System.out.println("Вы уже на этом этаже");
+      }
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -32,9 +40,10 @@ public class Elevator {
       } else {
         previousFloor = floor;
       }
-      System.out.print("этаж " + floor + (queue.peek() != null ? " -> " : " - этаж 0"));
+      System.out.print("этаж " + floor + (queue.peek() != null ? " -> " : ""));
     }
     System.out.println();
     System.out.println("Время затраченное лифтом на маршрут =: " + totalSeconds + " с.");
   }
+
 }

@@ -12,12 +12,13 @@ public class Main {
         try {
           int floor = Integer.parseInt(line);
 
-          if (floor == 0) {
-            break;
-          } else if (floor < 0 || floor > 25) {
+          if (floor < 0 || floor > 25) {
             System.out.println("Такого этажа нет в доме");
           } else {
             elevator.addFloor(floor);
+            if (floor == 0) {
+              break;
+            }
           }
 
         } catch (NumberFormatException e) {
