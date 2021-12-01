@@ -1,9 +1,9 @@
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /** @author Stanislav Rakitov in 2021 */
 public class PhoneContacts {
-  private final HashMap<String, ArrayList<Contact>> map;
+  private final HashMap<String, HashSet<Contact>> map;
 
   public PhoneContacts() {
     map = new HashMap<>();
@@ -11,7 +11,7 @@ public class PhoneContacts {
 
   public void addGroup(String groupName) {
     if (!map.containsKey(groupName)) {
-      map.put(groupName, new ArrayList<>());
+      map.put(groupName, new HashSet<>());
     }
   }
 
@@ -20,10 +20,12 @@ public class PhoneContacts {
 
     for (String groupName : groups) {
       if (map.containsKey(groupName)) {
-        ArrayList<Contact> contacts = map.get(groupName);
-        contacts.add(contact);
+        HashSet<Contact> contacts = map.get(groupName);
+        if (!contacts.add(contact)) {
+          System.out.println("Дубликат..");
+        }
       } else {
-        ArrayList<Contact> contacts = new ArrayList<>();
+        HashSet<Contact> contacts = new HashSet<>();
         contacts.add(contact);
         map.put(groupName, contacts);
       }

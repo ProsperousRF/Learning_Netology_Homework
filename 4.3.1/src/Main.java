@@ -32,6 +32,10 @@ public class Main {
         } else {
           System.out.println("Укажите группы контакта через пробел");
           String groupsLine = scanner.nextLine();
+          if (groupsLine == null) {
+            System.out.println("Без указания группы контакт не добавляется.");
+            continue;
+          }
           String[] groups = groupsLine.split(" ");
           phoneContacts.addContact(contact, groups);
         }
