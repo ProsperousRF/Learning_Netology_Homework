@@ -12,9 +12,14 @@ public class Contact {
   }
 
   private void proceedRawString(String rawString) {
-    int index = rawString.lastIndexOf(" ");
-    this.name = rawString.substring(0, index);
-    this.phoneNumber =rawString.substring(index + 1);
+    try {
+      int index = rawString.lastIndexOf(" ");
+      this.name = rawString.substring(0, index);
+      this.phoneNumber =rawString.substring(index + 1);
+
+    } catch (StringIndexOutOfBoundsException exception) {
+      System.out.println("Ошибка при добавлении контакта. Не указанно имя или телефон");
+    }
   }
 
   @Override

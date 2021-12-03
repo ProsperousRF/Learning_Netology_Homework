@@ -43,5 +43,14 @@ public class Main {
     }
     System.out.println("Группы в справочнике:");
     phoneContacts.printContent();
+
+    System.out.println("А теперь дискотека с геттерами");
+    System.out.println("Список групп и контактов в ней");
+    for (String groupName : phoneContacts.getGroups()) {
+      System.out.println("Группа " + groupName);
+      for (Contact contact : phoneContacts.getContacts(groupName) ) {
+        System.out.println("\t" + contact);
+      }
+    }
   }
 }

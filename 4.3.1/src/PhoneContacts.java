@@ -42,4 +42,18 @@ public class PhoneContacts {
       }
     }
   }
+
+  // метод получения групп
+  public String[] getGroups() {
+    return map.keySet().toArray(new String[0]);
+  }
+
+  // метод получения контактов по группе
+  public Contact[] getContacts(String group) {
+
+    HashSet<Contact> contacts = map.get(group);
+    Contact[] contactsArray = new Contact[contacts.size()];
+
+    return contacts.toArray(contactsArray);
+  }
 }
